@@ -58,10 +58,11 @@ def SPI_MCP3008_Init():
 #              0 ---> 1023
 # output : list of all the 6 sensors current readings
 #
+# Passed to: PID functions
 def ADC_MCP3008_Readings():
-    # Read all the 8 ADC channel values in a list.
-    Sensor_Readings = [0]*8
-    for i in range(8):
+    # Read all the 6 ADC channel values in a list.
+    Sensor_Readings = [0]*6
+    for i in range(6):
         # The read_adc function will get the value of the specified channel (0-7).
         Sensor_Readings[i] = mcp.read_adc(i)
 
@@ -83,5 +84,3 @@ def ADC_MCP3008_Readings():
     Values = [int(values) for values in Sensor_Readings]
 
     return Values
-
-    
